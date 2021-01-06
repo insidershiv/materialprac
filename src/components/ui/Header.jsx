@@ -69,9 +69,17 @@ function Header() {
 
 
         },
+        drawer : {
+            backgroundColor: theme.palette.common.blue,
+            color:'white'
+        },
         drawerIcon:{
             height:'50px',
             width:'50px',
+        },
+        drawerItem: {
+            ...theme.palette.tab,
+            color:'white'
         },
         drawerIconContainer: {
             '&:hover': {
@@ -256,30 +264,34 @@ function Header() {
     const drawer = (
         <>
 
-            <SwipeableDrawer disableBackdropTransition={!iOS} disableDiscovery={iOS} open={openDrawer} onClose = {()=>setOpenDrawer(false)} onOpen ={()=>setOpenDrawer(true)}>
+            <SwipeableDrawer disableBackdropTransition={!iOS} disableDiscovery={iOS} open={openDrawer} onClose = {()=>setOpenDrawer(false)} onOpen ={()=>setOpenDrawer(true)} classes={{paper:classes.drawer}}>
               
 
                 <List>
 
-            <ListItem component={Link} to ="/"  divider button onClick ={()=>setOpenDrawer(false)}>
+            <ListItem component={Link} to ="/"  divider button onClick ={()=>{setOpenDrawer(false); setValue(0)}} selected={value ===0}>
            
-           <ListItemText disableTypography>Home </ListItemText>
+           <ListItemText disableTypography className={classes.drawerItem}>Home </ListItemText>
             </ListItem>
 
-            <ListItem component={Link} to ="/services"  divider button onClick ={()=>setOpenDrawer(false)}>
-                <ListItemText disableTypography> Sevices </ListItemText>
+            <ListItem component={Link} to ="/services"  divider button onClick ={()=>{setOpenDrawer(false); setValue(1)}} selected={value ===1}>
+                <ListItemText disableTypography className={classes.drawerItem}> Sevices </ListItemText>
             
             </ListItem>
-            <ListItem component={Link} to ="/about"  divider button onClick ={()=>setOpenDrawer(false)}>
-                <ListItemText disableTypography>About </ListItemText>
+            <ListItem component={Link} to ="/revolution"  divider button onClick ={()=>{setOpenDrawer(false);setValue(2)}} selected={value===2}>
+                <ListItemText disableTypography className={classes.drawerItem}> The Revolution </ListItemText>
+            
+            </ListItem>
+            <ListItem component={Link} to ="/about"  divider button onClick ={()=>{setOpenDrawer(false); setValue(3)}} selected={value ===3}>
+                <ListItemText disableTypography className={classes.drawerItem}>About </ListItemText>
            
             </ListItem>
-            <ListItem component={Link} to ="/contact"  divider button onClick ={()=>setOpenDrawer(false)}>
-                <ListItemText disableTypography>Contact Us</ListItemText>
+            <ListItem component={Link} to ="/contact"  divider button onClick ={()=>{setOpenDrawer(false); setValue(4)}} selected={value ===4}>
+                <ListItemText disableTypography className={classes.drawerItem}>Contact Us</ListItemText>
            
             </ListItem>
-            <ListItem component={Link} to ="/estimate"  divider button onClick ={()=>setOpenDrawer(false)}>
-                <ListItemText disableTypography>Free Estimate</ListItemText>
+            <ListItem component={Link} to ="/estimate"  divider button onClick ={()=>{setOpenDrawer(false); setValue(5)}} selected={value ===5}>
+                <ListItemText disableTypography className={classes.drawerItem}>Free Estimate</ListItemText>
            
             </ListItem>
                 </List>
