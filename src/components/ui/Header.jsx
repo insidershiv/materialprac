@@ -266,7 +266,6 @@ function Header() {
 
             <SwipeableDrawer disableBackdropTransition={!iOS} disableDiscovery={iOS} open={openDrawer} onClose = {()=>setOpenDrawer(false)} onOpen ={()=>setOpenDrawer(true)} classes={{paper:classes.drawer}}>
               
-
                 <List>
 
             <ListItem component={Link} to ="/"  divider button onClick ={()=>{setOpenDrawer(false); setValue(0)}} selected={value ===0}>
