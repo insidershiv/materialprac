@@ -122,7 +122,7 @@ function Header(props) {
         props.setSelectedIndex(index)
     }
 
-    const menuOptions = [{ name: 'Services', link: '/services' }, { name: 'Custom Software Development', link: '/customsoftware' }, { name: 'Mobile App Development', link: '/mobileapps' }, { name: 'Website Development', link: '/websites' }]
+    const menuOptions = [{ name: 'Services', link: '/services' }, { name: 'Custom Software Development', link: '/customsoftware' }, { name: 'iOS/Android App Development', link: '/mobileapps' }, { name: 'Website Development', link: '/websites' }]
 
     useEffect(() => {
         if (window.location.pathname === '/' && props.value !== 0) {
