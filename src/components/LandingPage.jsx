@@ -113,7 +113,8 @@ const useStyles = makeStyles(theme => ({
             paddinLeft:0,
             paddingRight:0,
             borderRadius:0,
-            width:'100%'
+            width:'100%',
+            padding:'0em'
         }
 
     },
@@ -305,7 +306,7 @@ export default function LandingPage(props) {
             {/* Revolution section starts here */}
 
             <Grid item>
-                <Grid container style={{height:'100em', marginTop:'12em'}} alignItems="center" justify="center">
+                <Grid container style={{height:'80em', marginTop:'12em'}} alignItems="center" justify="center">
                    
                 <Card className={classes.revolutionCard}>
 
