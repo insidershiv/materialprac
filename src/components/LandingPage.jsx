@@ -9,6 +9,8 @@ import mobileAppsIcon from '../assets/mobileIcon.svg';
 import websitesIcon from '../assets/websiteIcon.svg';
 import revolutionBackground from '../assets/repeatingBackground.svg';
 import infoBackgroud from '../assets/infoBackground.svg';
+import CallToAction from './ui/CallToAction';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
 
@@ -62,7 +64,8 @@ const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.down('xs')]: {
             marginTop: '2em'
-        }
+        },
+        marginRight:0
 
     },
     heroTextContainer: {
@@ -126,7 +129,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function LandingPage() {
+export default function LandingPage(props) {
 
     const classes = useStyles();
     const theme = useTheme();
@@ -165,13 +168,13 @@ export default function LandingPage() {
 
                             <Grid item >
 
-                                <Button variant="contained" className={classes.estimateButton}> Free Estimate</Button>
+                                <Button component={Link} to="/estimate" onClick= {()=>props.setValue(5)} variant="contained" className={classes.estimateButton}> Free Estimate</Button>
 
                             </Grid>
 
                             <Grid item>
 
-                                <Button variant="outlined" className={classes.learnButtonHero}>Learn More</Button>
+                                <Button component={Link} to="/revolution" onClick= {()=>props.setValue(2)} variant="outlined" className={classes.learnButtonHero}>Learn More</Button>
 
 
                             </Grid>
@@ -208,7 +211,7 @@ export default function LandingPage() {
                             <span className={classes.specialText}>Celebration</span>
                         </Typography>
 
-                        <Button variant="outlined" className={classes.learnButton}>
+                        <Button variant="outlined" component={Link} to="/customsoftware" onClick= {()=>{props.setValue(1); props.selectedIndex(1)}} className={classes.learnButton}>
                             <span style={{ marginRight: 10 }}> Learn More</span>
 
                         </Button>
@@ -246,7 +249,7 @@ export default function LandingPage() {
         with either mobile platform
                    </Typography>
 
-                        <Button variant="outlined" className={classes.learnButton}>
+                        <Button variant="outlined" component={Link} to="/mobileapps" onClick= {()=>{props.setValue(1); props.selectedIndex(2)}} className={classes.learnButton}>
                             <span style={{ marginRight: 10 }}> Learn More</span>
 
                         </Button>
@@ -284,7 +287,7 @@ export default function LandingPage() {
                             Optimize for Search Engines, built for speed.
                    </Typography>
 
-                        <Button variant="outlined" className={classes.learnButton}>
+                        <Button variant="outlined" component={Link} to="/wbsites" onClick= {()=>{props.setValue(1); props.selectedIndex(3)}} className={classes.learnButton}>
                             <span style={{ marginRight: 10 }}> Learn More</span>
 
                         </Button>
@@ -323,7 +326,7 @@ export default function LandingPage() {
                                     for revolution.
 
                 </Typography>
-                                <Button variant="outlined" className={classes.learnButton}>
+                                <Button variant="outlined" component={Link} to="/revolution" onClick= {()=>{props.setValue(1)}} className={classes.learnButton}>
                                     <span style={{ marginRight: 10 }}> Learn More</span>
 
                                 </Button>
@@ -349,13 +352,13 @@ export default function LandingPage() {
 
                 <Grid container direction="row" style={{height:'80em'}} alignItems="center">
 
-                    <Grid item container style={{position:'absolute', textAlign:matchesXS ? 'center' : 'inherit'}} direction= {matchesXS ? 'column': 'row'} spacing={matchesXS ? 10 : 0}>
+                    <Grid item container style={{position:'absolute', textAlign:matchesXS ? 'center' : 'inherit'}} direction= {matchesXS ? 'column': 'row'}>
 
                    
 
                     <Grid item sm style={{marginLeft: matchesXS ? 0 : matchesSM ? '2em': '5em'}}>
 
-                        <Grid container direction="column" >
+                        <Grid container style ={{marginBottom : matchesSM ? '10em' : 0}} direction="column" >
 
                         <Typography variant="h2" style={{color:'white'}}>
                             About Us
@@ -369,7 +372,7 @@ export default function LandingPage() {
                         </Typography>
                         <Grid item>
                       
-                        <Button variant="outlined" className={classes.learnButton} style={{color:'white', borderColor:'white', padding:'1em'}}>
+                        <Button variant="outlined" component={Link} to="/about" className={classes.learnButton} onClick= {()=>{props.setValue(3)}} style={{color:'white', borderColor:'white', padding:'1em'}}>
                                     <span style={{ marginRight: 10 }}> Learn More</span>
 
                                 </Button>
@@ -396,7 +399,7 @@ export default function LandingPage() {
                     </Typography>
                     <Grid item>
 
-            <Button variant="outlined" className={classes.learnButton} style={{color:'white', borderColor:'white', padding:'1em'}}>
+            <Button variant="outlined" component={Link} to="/contact" className={classes.learnButton} onClick= {()=>{props.setValue(4)}} style={{color:'white', borderColor:'white', padding:'1em'}}>
             <span style={{ marginRight: 10 }}> Learn More</span>
 
                 </Button>
@@ -413,6 +416,11 @@ export default function LandingPage() {
 
 
                 </Grid>
+                </Grid>
+
+                <Grid item>
+
+        <CallToAction setValue ={props.setValue}/>
                 </Grid>
 
         </Grid>

@@ -212,7 +212,7 @@ function Header(props) {
 
 
 
-    }, [props.value])
+    },)
 
 
     const tabs = (
